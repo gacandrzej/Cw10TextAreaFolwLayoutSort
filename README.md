@@ -22,8 +22,9 @@ Projekt zawiera również testy jednostkowe JUnit 5, które weryfikują poprawno
 
 ---
 
-## 📝 Opis projektu
+## 📝Opis projektu
 Projekt ma na celu:
+- Poznanie JTextArea, actionListenera w praktyce.
 - Poznanie klasycznych algorytmów sortowania w praktyce.
 - Porównanie efektywności sortowania różnych metod.
 - Wykorzystanie tablic `int[]` oraz testów jednostkowych w JUnit 5.
@@ -31,21 +32,21 @@ Projekt ma na celu:
 
 ---
 
-## ⚙️ Technologie
-- Java 17
+## ⚙️Technologie
+- Java 25
 - Swing (GUI)
 - JUnit 5 (testy jednostkowe)
 - Random streams w Javie 8+
 
 ---
 
-## 💻 Instalacja
+## 💻Instalacja
 ```bash
 # Sklonuj repozytorium
-git clone https://github.com/TwójNick/algorytmy-sortowania.git
+git clone https://github.com/gacandrzej/Cw10TextAreaFolwLayoutSort.git
 
 # Przejdź do katalogu projektu
-cd algorytmy-sortowania
+cd Cw10TextAreaFolwLayoutSort
 
 # Kompilacja
 javac -d bin src/**/*.java
@@ -54,8 +55,22 @@ javac -d bin src/**/*.java
 java -cp bin cwiczenia10.Main
 ```
 
+---
+
 ## 🚀Użycie
-## 📌 Przykład kodu
+
+- Uruchom GUI projektu.
+
+- Wprowadź liczby do sortowania lub wygeneruj losową tablicę.
+
+- Wybierz metodę sortowania: Bubble, Insertion lub Selection.
+
+- Kliknij Sortuj, aby wyświetlić posortowane dane.
+
+
+---
+
+## 📌Przykład kodu
 ```java
  przyciskSortujTablice.addActionListener(new ActionListener() {
             @Override
@@ -74,7 +89,10 @@ java -cp bin cwiczenia10.Main
             }
         });
 ```
-## 🧪 Testy jednostkowe
+
+---
+
+## 🧪Testy jednostkowe
 ```java
  @Test
     void insertionSortPreemptive() {
@@ -91,8 +109,20 @@ java -cp bin cwiczenia10.Main
                 "Insertion Sort przekroczył maksymalny czas wykonania!");
     }
 ```
-## 🖼️Zrzuty
+
+---
+
+## 🖼️Zrzuty ekranu
 ![img_1.png](img_1.png)
 
-## 👤Autor
+---
 
+## 👤Autor
+- GitHub: gacandrzej
+
+- Email: gacandrzej@gmail.com
+
+---
+
+## Licencja
+- MIT License © 2025 gacandrzej
