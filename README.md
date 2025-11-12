@@ -16,9 +16,10 @@ Projekt zawiera również testy jednostkowe JUnit 5, które weryfikują poprawno
 4. [Użycie](#użycie)
 5. [Przykład kodu](#przykład-kodu)
 6. [Testy jednostkowe](#testy-jednostkowe)
-7. [Zrzuty ekranu](#zrzuty-ekranu)
-8. [Autor](#autor)
-9. [Licencja](#licencja)
+7. [Diagram sekwencji](#diagram-sekwencji)
+8. [Zrzuty ekranu](#zrzuty-ekranu)
+9. [Autor](#autor)
+10. [Licencja](#licencja)
 
 ---
 
@@ -110,6 +111,44 @@ java -cp bin cwiczenia10.Main
     }
 ```
 
+---
+
+## 📊Diagram sekwencji
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Test as AlgorithmsTest
+    participant Alg as Algorithms
+    participant Arrays as JavaArrays
+
+    Note over Test: @BeforeEach - setUp
+    Test->>Alg: new Algorithms()
+    Test->>Test: create random int[] arr
+
+    Note over Test: Test insertionSort()
+    Test->>Alg: insertionSort(copy of arr)
+    Alg->>Arrays: sort expected array
+    Alg-->>Test: sorted copy
+    Test->>Test: assertArrayEquals(expected, copy)
+
+    Note over Test: Test selectionSort()
+    Test->>Alg: selectionSort(copy of arr)
+    Alg->>Arrays: sort expected array
+    Alg-->>Test: sorted copy
+    Test->>Test: assertArrayEquals(expected, copy)
+
+    Note over Test: Test bubbleSort()
+    Test->>Alg: bubbleSort(copy of arr)
+    Alg->>Arrays: sort expected array
+    Alg-->>Test: sorted copy
+    Test->>Test: assertArrayEquals(expected, copy)
+
+    Note over Test: Timeout tests
+    Test->>Alg: bubbleSort(copy of arr) with assertTimeout(Duration.ofSeconds(5))
+    Alg-->>Test: sorted copy or timeout exception
+
+```
 ---
 
 ## 🖼️Zrzuty ekranu
