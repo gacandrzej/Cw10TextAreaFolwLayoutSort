@@ -1,137 +1,82 @@
-# Cw10TextAreaFolwLayoutSort
-![img.png](img.png)
+# Algorytmy Sortowania w Javie
+
+Projekt edukacyjny w Javie prezentujący implementację klasycznych algorytmów sortowania:
+- Bubble Sort
+- Insertion Sort
+- Selection Sort
+
+Projekt zawiera również testy jednostkowe JUnit 5, które weryfikują poprawność działania algorytmów oraz umożliwiają pomiar czasu wykonywania.
+
+---
+
+## 📌 Spis treści
+1. [Opis projektu](#opis-projektu)
+2. [Technologie](#technologie)
+3. [Instalacja](#instalacja)
+4. [Użycie](#użycie)
+5. [Przykład kodu](#przykład-kodu)
+6. [Testy jednostkowe](#testy-jednostkowe)
+7. [Zrzuty ekranu](#zrzuty-ekranu)
+8. [Autor](#autor)
+9. [Licencja](#licencja)
+
+---
+
+## 📝 Opis projektu
+Projekt ma na celu:
+- Poznanie klasycznych algorytmów sortowania w praktyce.
+- Porównanie efektywności sortowania różnych metod.
+- Wykorzystanie tablic `int[]` oraz testów jednostkowych w JUnit 5.
+- Ćwiczenie pracy z losowymi danymi (`Random` i streamy).
+
+---
+
+## ⚙️ Technologie
+- Java 17
+- Swing (GUI)
+- JUnit 5 (testy jednostkowe)
+- Random streams w Javie 8+
+
+---
+
+## 💻 Instalacja
+```bash
+# Sklonuj repozytorium
+git clone https://github.com/TwójNick/algorytmy-sortowania.git
+
+# Przejdź do katalogu projektu
+cd algorytmy-sortowania
+
+# Kompilacja
+javac -d bin src/**/*.java
+
+# Uruchomienie GUI (przykład)
+java -cp bin cwiczenia10.Main
+```
+
+## 🚀Użycie
+## 📌 Przykład kodu
 ```java
-package cwiczenia10;
+ przyciskSortujTablice.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                areaWypiszPosortowanaTablice.setText("");
+                // konwersja List<Integer> → int[]
+                int[] arr = liczby.stream().mapToInt(Integer::intValue).toArray();
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+                Algorithms alg = new Algorithms();
 
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-class AlgorithmsTest {
-    Algorithms algorithms;
-    int[] arr;
-
-    @BeforeEach
-    void setUp() {
-        algorithms = new Algorithms();
-        int n = 50_000; // rozmiar tablicy
-        Random random = new Random();
-
-        // Tworzymy tablicę int[] z losowymi liczbami 0..999_999
-        arr = random.ints(n, 0, 1_000_000).toArray();
-    }
-
-    @AfterEach
-    void tearDown() {
-        algorithms = null;
-        arr = null;
-    }
-
-    @Test
-    void insertionSort() {
-        int[] copy = arr.clone();
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-        algorithms.insertionSort(copy);
-        assertArrayEquals(expected, copy, "Insertion Sort nie posortował poprawnie tablicy");
-    }
-
-    @Test
-    void selectionSort() {
-        int[] copy = arr.clone();
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-        algorithms.selectionSort(copy);
-        assertArrayEquals(expected, copy, "Selection Sort nie posortował poprawnie tablicy");
-    }
-
-    @Test
-    void bubbleSort() {
-        int[] copy = arr.clone();
-        int[] expected = arr.clone();
-        Arrays.sort(expected);        // oczekiwany wynik
-        algorithms.bubbleSort(copy);  // sortowanie Twoim algorytmem
-        assertArrayEquals(expected, copy, "Bubble Sort nie posortował poprawnie tablicy");
-    }
-
-    // timeout
-    @Test
-    void bubbleSortTimeout() {
-        int n = 10_000;
-        Random random = new Random();
-        int[] arr = random.ints(n, 0, 1_000_000).toArray();
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-
-        assertTimeout(Duration.ofSeconds(5),
-                () -> {
-                    int[] copy = arr.clone();
-                    algorithms.bubbleSort(copy);
-                    assertArrayEquals(expected, copy,
-                            "Bubble Sort nie posortował tablicy poprawnie!");
-                },
-                "Bubble Sort przekroczył maksymalny czas wykonania!");
-    }
-
-    @Test
-    void insertionSortTimeout() {
-        int n = 10_000;
-        Random random = new Random();
-        int[] arr = random.ints(n, 0, 1_000_000).toArray();
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-
-        assertTimeout(Duration.ofSeconds(5),
-                () -> {
-                    int[] copy = arr.clone();
-                    algorithms.insertionSort(copy);
-                    assertArrayEquals(expected, copy,
-                            "Insertion Sort nie posortował tablicy poprawnie!");
-                },
-                "Insertion Sort przekroczył maksymalny czas wykonania!");
-    }
-
-    @Test
-    void selectionSortTimeout() {
-        int n = 10_000;
-        Random random = new Random();
-        int[] arr = random.ints(n, 0, 1_000_000).toArray();
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-
-        assertTimeout(Duration.ofSeconds(5),
-                () -> {
-                    int[] copy = arr.clone();
-                    algorithms.selectionSort(copy);
-                    assertArrayEquals(expected, copy,
-                            "Selection Sort nie posortował tablicy poprawnie!");
-                },
-                "Selection Sort przekroczył maksymalny czas wykonania!");
-    }
-
-    // assertTimeoutPreemptively
-    @Test
-    void bubbleSortPreemptive() {
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-
-        assertTimeoutPreemptively(Duration.ofSeconds(5),
-                () -> {
-                    int[] copy = arr.clone();
-                    algorithms.bubbleSort(copy);
-                    assertArrayEquals(expected, copy,
-                            "Bubble Sort nie posortował tablicy poprawnie!");
-                },
-                "Bubble Sort przekroczył maksymalny czas wykonania!");
-    }
-
-    @Test
+                // przykładowo testujemy każdy algorytm osobno
+                testSort("Bubble Sort", arr.clone(), alg::bubbleSort);
+                testSort("Insertion Sort", arr.clone(), alg::insertionSort);
+                testSort("Selection Sort", arr.clone(), alg::selectionSort);
+               // for (Integer i: liczby) areaWypiszPosortowanaTablice.append(i+" ");
+            }
+        });
+```
+## 🧪 Testy jednostkowe
+```java
+ @Test
     void insertionSortPreemptive() {
         int[] expected = arr.clone();
         Arrays.sort(expected);
@@ -145,21 +90,9 @@ class AlgorithmsTest {
                 },
                 "Insertion Sort przekroczył maksymalny czas wykonania!");
     }
-
-    @Test
-    void selectionSortPreemptive() {
-        int[] expected = arr.clone();
-        Arrays.sort(expected);
-
-        assertTimeoutPreemptively(Duration.ofSeconds(5),
-                () -> {
-                    int[] copy = arr.clone();
-                    algorithms.selectionSort(copy);
-                    assertArrayEquals(expected, copy,
-                            "Selection Sort nie posortował tablicy poprawnie!");
-                },
-                "Selection Sort przekroczył maksymalny czas wykonania!");
-    }
-
-}
 ```
+## 🖼️Zrzuty
+![img_1.png](img_1.png)
+
+## 👤Autor
+
