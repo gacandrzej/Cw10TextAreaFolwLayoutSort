@@ -1,0 +1,20 @@
+classDiagram
+    class SortArrayWithAlgorithms {
+        -JLabel etykietaWielkoscTablicy
+        -JTextField poleDlugoscTablicy
+        -JButton przyciskWczytajTablice
+        -JButton przyciskSortujTablice
+        -JTextArea areaWypiszTablice
+        -JTextArea areaWypiszPosortowanaTablice
+        -List~Integer~ liczby
+        +SortArrayWithAlgorithms()
+        -testSort(String name, int[] arr, Consumer~int[]~ sorter)
+    }
+
+    class Algorithms {
+        +bubbleSort(int[] arr)
+        +insertionSort(int[] arr)
+        +selectionSort(int[] arr)
+    }
+
+    SortArrayWithAlgorithms --> Algorithms : używa

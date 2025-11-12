@@ -1,0 +1,18 @@
+
+sequenceDiagram
+participant User
+participant GUI as SortArrayWithAlgorithms
+participant Alg as Algorithms
+
+User->>GUI: Klik "Sortuj i wyświetl tablicę"
+GUI->>GUI: Konwersja List<Integer> -> int[]
+GUI->>Alg: testSort("Bubble Sort", arr.clone(), bubbleSort)
+Alg-->>GUI: Zwraca posortowaną tablicę
+GUI->>GUI: Wyświetl posortowaną tablicę i czas
+GUI->>Alg: testSort("Insertion Sort", arr.clone(), insertionSort)
+Alg-->>GUI: Zwraca posortowaną tablicę
+GUI->>GUI: Wyświetl posortowaną tablicę i czas
+GUI->>Alg: testSort("Selection Sort", arr.clone(), selectionSort)
+Alg-->>GUI: Zwraca posortowaną tablicę
+GUI->>GUI: Wyświetl posortowaną tablicę i czas
+
