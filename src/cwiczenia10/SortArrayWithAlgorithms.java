@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 
 import static java.lang.IO.println;
 
-public class SortArray extends JFrame {
+public class SortArrayWithAlgorithms extends JFrame {
     JLabel etykietaWielkoscTablicy;
     JTextField poleDlugoscTablicy;
     JButton przyciskWczytajTablice;
@@ -24,7 +25,7 @@ public class SortArray extends JFrame {
     Font czcionkaPrzyciskow;
     List<Integer> liczby = new ArrayList<>();
 
-    public SortArray() {
+    public SortArrayWithAlgorithms() {
         setTitle("Sort Array");
         setIconImage(new ImageIcon("src/strawberry.png").getImage());
         setSize(new Dimension(600,800));
@@ -75,8 +76,16 @@ public class SortArray extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 areaWypiszPosortowanaTablice.setText("");
-                Collections.sort(liczby);
-                for (Integer i: liczby) areaWypiszPosortowanaTablice.append(i+" ");
+                // konwersja List<Integer> → int[]
+                int[] arr = liczby.stream().mapToInt(Integer::intValue).toArray();
+
+                Algorithms alg = new Algorithms();
+
+                // przykładowo testujemy każdy algorytm osobno
+                testSort("Bubble Sort", arr.clone(), alg::bubbleSort);
+                testSort("Insertion Sort", arr.clone(), alg::insertionSort);
+                testSort("Selection Sort", arr.clone(), alg::selectionSort);
+               // for (Integer i: liczby) areaWypiszPosortowanaTablice.append(i+" ");
             }
         });
 
@@ -124,7 +133,22 @@ public class SortArray extends JFrame {
         add(mainPanel);
     }
 
+    private void testSort(String name, int[] arr, Consumer<int[]> sorter) {
+        long start = System.nanoTime();
+
+        sorter.accept(arr); // wywołanie np. bubbleSort(arr)
+
+        long end = System.nanoTime();
+        double ms = (end - start) / 1_000_000.0;
+
+        areaWypiszPosortowanaTablice.append(name + ":\n");
+        for (int x : arr) areaWypiszPosortowanaTablice.append(x + " ");
+        areaWypiszPosortowanaTablice.append(String.format("\nCzas dla %s: %.3f ms\n\n", name, ms));
+        println(String.format("Czas dla %s: %.3f ms", name, ms));
+    }
+
+
     void main() {
-        SwingUtilities.invokeLater(()->new SortArray().setVisible(true));
+        SwingUtilities.invokeLater(()->new SortArrayWithAlgorithms().setVisible(true));
     }
 }

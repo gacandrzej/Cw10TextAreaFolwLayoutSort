@@ -1,6 +1,3 @@
-# Cw10TextAreaFolwLayoutSort
-![img.png](img.png)
-```java
 package cwiczenia10;
 
 import org.junit.jupiter.api.AfterEach;
@@ -162,4 +159,3 @@ class AlgorithmsTest {
     }
 
 }
-```
