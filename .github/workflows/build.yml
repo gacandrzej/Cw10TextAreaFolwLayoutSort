@@ -49,6 +49,11 @@ jobs:
         with:
             name: junit-report
             path: reports/report-jupiter.html
+            artifact-name: github-pages
 
+  deploy-pages:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy HTML report for preview
         uses: actions/deploy-pages@v4
