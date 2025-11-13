@@ -33,6 +33,10 @@ if [ ! -f "$JUNIT_CONSOLE" ]; then
     curl -L -o "$JUNIT_CONSOLE" "https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/$PLATFORM_VERSION/junit-platform-console-standalone-$PLATFORM_VERSION.jar"
 fi
 
+# Instalacja junit2html (jeśli nie ma)
+echo "Instaluję junit2html..."
+python -m pip install --upgrade pip junit2html
+
 # Kompilacja kodu źródłowego i testów
 echo "Kompilacja kodu..."
 if [[ "$OS" == "Windows_NT" ]]; then
@@ -54,14 +58,6 @@ java -jar "$JUNIT_CONSOLE" \
 echo "✅ Testy zakończone. Raport w katalogu $REPORT_DIR"
 
 echo "Konwersja XML -> HTML"
-# Instalacja junit2html (jeśli nie ma)
-echo "Instaluję junit2html..."
-python -m pip install --upgrade pip junit2html --user
-# Instalacja junit2html, jeśli brak
-if ! python -m junit2html --version &> /dev/null; then
-    echo "Instaluję junit2html..."
-    python -m pip install --user -q junit2html
-fi
 
 if [[ "$OS" == "Windows_NT" ]]; then
   "$Scripts_DIR/junit2html.exe" "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
