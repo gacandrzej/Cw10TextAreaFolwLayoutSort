@@ -47,8 +47,7 @@ jobs:
       - name: Upload HTML report
         uses: actions/upload-pages-artifact@v3
         with:
-            name: junit-report
-            path: reports/report-jupiter.html
+            path: reports/
             artifact-name: github-pages
 
   deploy-pages:
