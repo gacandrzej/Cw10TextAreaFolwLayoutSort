@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST-junit-jupiter.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+    word-break: break-all;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.toc {
+    list-style: none;
+}
+
+.toc li.outcome {
+    list-style: none;
+}
+
+.toc li.outcome::before {
+    content: "\2022";
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.27em;
+    margin-left: -1.27em;
+    font-size: 1.2em;
+}
+
+.toc li.outcome-failed {
+    background-color: lightcoral;
+}
+
+.toc li.outcome-failed::before {
+    color: red;
+}
+
+.toc li.outcome-passed::before {
+    color: green;
+}
+
+.toc li.outcome-skipped::before {
+    color: orange;
+}
+
+.testcases .outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.testcases .outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em dotted silver;
+}
+
+.testcases .outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.testcases .outcome-skipped {
+    border-left: 1em solid #FED8B1;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : TEST-junit-jupiter.xml
+</h1>
+
+
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>cwiczenia10.AlgorithmsTest
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#28204774-2a11-48d9-bb0e-e86cf19bf8ff">bubbleSortPreemptive()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#b96dbf4e-cda9-4c38-9e2d-08b45276b721">bubbleSort()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#2f14938f-b7cf-4ada-8052-81d9facd3bdd">selectionSort()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#0feca89c-d529-4566-9791-55b9b689a445">selectionSortTimeout()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#10224dfd-6179-48ea-8e71-3569befb93f7">insertionSortTimeout()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#71f2bfdd-5468-42e7-8c71-f0012d6ba5d0">insertionSort()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#76e1a268-0cbc-45ee-a1d3-97b2920a19bb">bubbleSortTimeout()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#0b1659e2-d3f9-41ed-a644-c4299159339e">insertionSortPreemptive()</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#e92e1c3f-1ed3-4504-b1e3-206d2fd6703b">selectionSortPreemptive()</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+
+    <div class="testsuite">
+        <h2>Test Suite: JUnit Jupiter</h2>
+        <a id="6d7e947f-690b-4e90-bfc4-51fcad64e13e"></a>
+        
+        
+        <h3>Suite Properties</h3>
+        <table class="proplist">
+            
+            <tr>
+                <th>file.encoding</th><td>UTF-8</td>
+            </tr>
+            
+            <tr>
+                <th>file.separator</th><td>\</td>
+            </tr>
+            
+            <tr>
+                <th>java.class.path</th><td>libs/junit-platform-console-standalone-1.10.0.jar</td>
+            </tr>
+            
+            <tr>
+                <th>java.class.version</th><td>69.0</td>
+            </tr>
+            
+            <tr>
+                <th>java.home</th><td>C:\Program Files\Java\jdk-25</td>
+            </tr>
+            
+            <tr>
+                <th>java.io.tmpdir</th><td>C:\Users\egzamin\AppData\Local\Temp\</td>
+            </tr>
+            
+            <tr>
+                <th>java.library.path</th><td>C:\Program Files\Java\jdk-25\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\egzamin\bin;C:\Program Files\Python311\Scripts;C:\Program Files\Python311;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\Program Files\PuTTY;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Java\jdk-25\bin;C:\Program Files\Java\jdk-25\bin;C:\Program Files\Python311\Scripts;C:\Program Files\Python311;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\Program Files\PuTTY;C:\Program Files (x86)\GnuPG\bin;C:\Program Files\Java\jdk-25\bin;.</td>
+            </tr>
+            
+            <tr>
+                <th>java.runtime.name</th><td>OpenJDK Runtime Environment</td>
+            </tr>
+            
+            <tr>
+                <th>java.runtime.version</th><td>25+36-3489</td>
+            </tr>
+            
+            <tr>
+                <th>java.specification.name</th><td>Java Platform API Specification</td>
+            </tr>
+            
+            <tr>
+                <th>java.specification.vendor</th><td>Oracle Corporation</td>
+            </tr>
+            
+            <tr>
+                <th>java.specification.version</th><td>25</td>
+            </tr>
+            
+            <tr>
+                <th>java.vendor</th><td>Oracle Corporation</td>
+            </tr>
+            
+            <tr>
+                <th>java.vendor.url</th><td>https://java.oracle.com/</td>
+            </tr>
+            
+            <tr>
+                <th>java.vendor.url.bug</th><td>https://bugreport.java.com/bugreport/</td>
+            </tr>
+            
+            <tr>
+                <th>java.version</th><td>25</td>
+            </tr>
+            
+            <tr>
+                <th>java.version.date</th><td>2025-09-16</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.compressedOopsMode</th><td>Zero based</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.info</th><td>mixed mode, sharing</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.name</th><td>OpenJDK 64-Bit Server VM</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.specification.name</th><td>Java Virtual Machine Specification</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.specification.vendor</th><td>Oracle Corporation</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.specification.version</th><td>25</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.vendor</th><td>Oracle Corporation</td>
+            </tr>
+            
+            <tr>
+                <th>java.vm.version</th><td>25+36-3489</td>
+            </tr>
+            
+            <tr>
+                <th>jdk.debug</th><td>release</td>
+            </tr>
+            
+            <tr>
+                <th>line.separator</th><td> </td>
+            </tr>
+            
+            <tr>
+                <th>native.encoding</th><td>Cp1250</td>
+            </tr>
+            
+            <tr>
+                <th>os.arch</th><td>amd64</td>
+            </tr>
+            
+            <tr>
+                <th>os.name</th><td>Windows 11</td>
+            </tr>
+            
+            <tr>
+                <th>os.version</th><td>10.0</td>
+            </tr>
+            
+            <tr>
+                <th>path.separator</th><td>;</td>
+            </tr>
+            
+            <tr>
+                <th>stderr.encoding</th><td>cp852</td>
+            </tr>
+            
+            <tr>
+                <th>stdin.encoding</th><td>cp852</td>
+            </tr>
+            
+            <tr>
+                <th>stdout.encoding</th><td>cp852</td>
+            </tr>
+            
+            <tr>
+                <th>sun.arch.data.model</th><td>64</td>
+            </tr>
+            
+            <tr>
+                <th>sun.boot.library.path</th><td>C:\Program Files\Java\jdk-25\bin</td>
+            </tr>
+            
+            <tr>
+                <th>sun.cpu.endian</th><td>little</td>
+            </tr>
+            
+            <tr>
+                <th>sun.cpu.isalist</th><td>amd64</td>
+            </tr>
+            
+            <tr>
+                <th>sun.io.unicode.encoding</th><td>UnicodeLittle</td>
+            </tr>
+            
+            <tr>
+                <th>sun.java.command</th><td>libs/junit-platform-console-standalone-1.10.0.jar --classpath bin --scan-classpath --reports-dir reports --details verbose</td>
+            </tr>
+            
+            <tr>
+                <th>sun.java.launcher</th><td>SUN_STANDARD</td>
+            </tr>
+            
+            <tr>
+                <th>sun.jnu.encoding</th><td>Cp1250</td>
+            </tr>
+            
+            <tr>
+                <th>sun.management.compiler</th><td>HotSpot 64-Bit Tiered Compilers</td>
+            </tr>
+            
+            <tr>
+                <th>sun.os.patch.level</th><td></td>
+            </tr>
+            
+            <tr>
+                <th>user.country</th><td>PL</td>
+            </tr>
+            
+            <tr>
+                <th>user.dir</th><td>C:\Users\egzamin\IdeaProjects\Cw10TextAreaFolwLayoutSort</td>
+            </tr>
+            
+            <tr>
+                <th>user.home</th><td>C:\Users\egzamin</td>
+            </tr>
+            
+            <tr>
+                <th>user.language</th><td>pl</td>
+            </tr>
+            
+            <tr>
+                <th>user.name</th><td>user</td>
+            </tr>
+            
+            <tr>
+                <th>user.script</th><td></td>
+            </tr>
+            
+            <tr>
+                <th>user.timezone</th><td>Europe/Warsaw</td>
+            </tr>
+            
+            <tr>
+                <th>user.variant</th><td></td>
+            </tr>
+            
+        </table>
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>5.972 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>9</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>0</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>cwiczenia10.AlgorithmsTest</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="28204774-2a11-48d9-bb0e-e86cf19bf8ff"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>bubbleSortPreemptive()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>2.113 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:bubbleSortPreemptive()]
+display-name: bubbleSortPreemptive()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b96dbf4e-cda9-4c38-9e2d-08b45276b721"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>bubbleSort()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>1.939 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:bubbleSort()]
+display-name: bubbleSort()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="2f14938f-b7cf-4ada-8052-81d9facd3bdd"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>selectionSort()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.437 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:selectionSort()]
+display-name: selectionSort()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="0feca89c-d529-4566-9791-55b9b689a445"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>selectionSortTimeout()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.067 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:selectionSortTimeout()]
+display-name: selectionSortTimeout()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="10224dfd-6179-48ea-8e71-3569befb93f7"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>insertionSortTimeout()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.017 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:insertionSortTimeout()]
+display-name: insertionSortTimeout()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="71f2bfdd-5468-42e7-8c71-f0012d6ba5d0"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>insertionSort()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.364 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:insertionSort()]
+display-name: insertionSort()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="76e1a268-0cbc-45ee-a1d3-97b2920a19bb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>bubbleSortTimeout()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.058 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:bubbleSortTimeout()]
+display-name: bubbleSortTimeout()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="0b1659e2-d3f9-41ed-a644-c4299159339e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>insertionSortPreemptive()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.342 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:insertionSortPreemptive()]
+display-name: insertionSortPreemptive()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="e92e1c3f-1ed3-4504-b1e3-206d2fd6703b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>selectionSortPreemptive()</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.586 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>
+unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:selectionSortPreemptive()]
+display-name: selectionSortPreemptive()
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+        <h3>Suite stdout:</h3>
+        <pre class="stdio">
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+</pre>
+        <h3>Suite stderr:</h3>
+        <pre class="stdio">None</pre>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>

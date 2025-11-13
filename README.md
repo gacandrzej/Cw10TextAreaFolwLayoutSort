@@ -110,6 +110,12 @@ java -cp bin cwiczenia10.Main
                 "Insertion Sort przekroczył maksymalny czas wykonania!");
     }
 ```
+Uruchamianie:
+```bash
+# Uruchomienie testów w terminalu
+  javac -cp junit-platform-console-standalone-1.10.0.jar -d bin test/**/*.java
+  java -jar junit-platform-console-standalone-1.10.0.jar --class-path bin --scan-class-path
+```
 
 ---
 
@@ -157,9 +163,11 @@ sequenceDiagram
 ---
 
 ## 👤Autor
-- GitHub: gacandrzej
+- [GitHub: gacandrzej](https://github.com/gacandrzej)
 
-- Email: gacandrzej@gmail.com
+
+- Email: [gacandrzej@gmail.com](mailto:gacandrzej@gmail.com)
+
 
 ---
 
