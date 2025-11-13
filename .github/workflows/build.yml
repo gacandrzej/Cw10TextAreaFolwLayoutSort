@@ -1,0 +1,46 @@
+name: Java Sorting Algorithms CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Install Python 3 and pip
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install junit2html
+        run: python -m pip install --user junit2html
+
+      - name: Make script executable
+        run: chmod +x ./run_all_tests.sh
+
+      - name: Run all tests
+        run: ./run_all_tests.sh
+
+      - name: Upload HTML reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: reports/*.html

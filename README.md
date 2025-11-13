@@ -1,5 +1,7 @@
 # Algorytmy Sortowania w Javie
 
+![Build Status](https://github.com/gacandrzej/Cw10TextAreaFolwLayoutSort/actions/workflows/build.yml/badge.svg)
+
 Projekt edukacyjny w Javie prezentujący implementację klasycznych algorytmów sortowania:
 - Bubble Sort
 - Insertion Sort
@@ -39,7 +41,7 @@ Projekt ma na celu:
 - Java 25
 - Swing (GUI)
 - JUnit 5 (testy jednostkowe)
-- Random streams w Javie 8+
+- Random streams w Javie 8+, IntStream
 
 ---
 
@@ -96,6 +98,8 @@ java -cp bin cwiczenia10.Main
 ---
 
 ## 🧪Testy jednostkowe
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 ```java
  @Test
     void insertionSortPreemptive() {
