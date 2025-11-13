@@ -8,6 +8,11 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read           # potrzebne do checkout
+  id-token: write          # potrzebne dla deploy-pages
+  pages: write             # potrzebne do publikacji na GitHub Pages
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
