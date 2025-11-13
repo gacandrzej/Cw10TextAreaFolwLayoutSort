@@ -44,3 +44,6 @@ jobs:
         with:
             name: junit-report
             path: reports/report-jupiter.html
+
+      - name: Deploy HTML report for preview
+        uses: actions/deploy-pages@v4
