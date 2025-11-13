@@ -10,7 +10,7 @@ set -e
 BIN_DIR="bin"
 LIB_DIR="libs"
 REPORT_DIR="reports"
-Scripts_DIR="C:/Users/egzamin/AppData/Roaming/Python/Python311/Scripts"
+Scripts_DIR="$APPDATA/Python/Python311/Scripts"
 
 # Wersje JUnit
 JUNIT_VERSION="5.10.0"

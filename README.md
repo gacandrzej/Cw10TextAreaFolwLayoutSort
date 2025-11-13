@@ -18,8 +18,10 @@ Projekt zawiera również testy jednostkowe JUnit 5, które weryfikują poprawno
 6. [Testy jednostkowe](#testy-jednostkowe)
 7. [Diagram sekwencji](#diagram-sekwencji)
 8. [Zrzuty ekranu](#zrzuty-ekranu)
-9. [Autor](#autor)
-10. [Licencja](#licencja)
+9. [Uruchamianie testów](#uruchamianie-testów)
+10. [Autor](#autor)
+11. [Licencja](#licencja)
+
 
 ---
 
@@ -159,6 +161,44 @@ sequenceDiagram
 
 ## 🖼️Zrzuty ekranu
 ![img_1.png](img_1.png)
+
+---
+
+## 🏃Uruchamianie testów
+
+Projekt zawiera skrypt `run_all_tests.sh`, który umożliwia:
+
+- pobranie potrzebnych bibliotek JUnit 5,
+- pobranie i zainstalowanie `junit2html`, 
+- kompilację kodu źródłowego i testów jednostkowych,
+- uruchomienie testów i wygenerowanie raportów w formacie XML oraz HTML.
+
+### Co robi skrypt
+
+- Tworzy katalogi `bin/`, `libs/` i `reports/` (jeśli nie istnieją).
+- Pobiera pliki JUnit (`junit-jupiter-api` i `junit-platform-console-standalone`) do `libs/`.
+- Pobiera i instaluje `junit2html` (jeśli nie jest zainstalowany).
+- Kompiluje kod źródłowy i testy do katalogu `bin/`.
+- Uruchamia wszystkie testy jednostkowe i zapisuje wyniki w XML w katalogu `reports/`.
+- Konwertuje raporty XML na HTML przy użyciu `junit2html`.
+
+Pliki HTML powstają w katalogu `reports/` z nazwami:
+
+- `report-jupiter.html`
+- `report-platform.html`
+- `report-vintage.html`
+
+### Przykład raportu
+
+Po uruchomieniu skryptu w katalogu `reports/` znajdziesz pliki HTML, które można otworzyć w przeglądarce, aby zobaczyć wyniki testów w czytelnej formie.
+
+### Uruchomienie
+
+W terminalu (Bash / Git Bash / Linux / Mac):
+
+```bash
+  ./run_all_tests.sh
+```
 
 ---
 
