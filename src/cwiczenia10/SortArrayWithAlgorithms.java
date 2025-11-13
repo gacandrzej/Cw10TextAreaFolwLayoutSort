@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2025 Gac Andrzej
+ * Licencja MIT. Pełną treść licencji znajdziesz w pliku LICENSE w katalogu głównym projektu.
+ */
 package cwiczenia10;
 
 import javax.swing.*;
@@ -5,39 +9,47 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Consumer;
 
 import static java.lang.IO.println;
 
+/**
+ * Klasa SortArrayWithAlgorithms przedstawia wykorzystanie algorytmów sortowania na tablicy liczb całkowitych
+ * oraz komponentów swing takich jak JFrame, JPanel, JLabel, JTextField, JButton, JTextArea, JScrollPane, JSeparator.
+ * Przedstawia także użycie actionlistenerów.
+ * */
 public class SortArrayWithAlgorithms extends JFrame {
-    JLabel etykietaWielkoscTablicy;
-    JTextField poleDlugoscTablicy;
-    JButton przyciskWczytajTablice;
-    JButton przyciskSortujTablice;
+
+    JLabel etykietaWielkoscTablicy; // etykieta do wyświetlania informacji o rozmiarze tablicy.
+    JTextField poleDlugoscTablicy; // pole tekstowe do wprowadzania długości tablicy
+    JButton przyciskWczytajTablice; // przycisk do wczytania tablicy
+    JButton przyciskSortujTablice; // przycisk do sortowania tablicy
     JLabel etykietaWypiszTablice;
-    JTextArea areaWypiszTablice;
+    JTextArea areaWypiszTablice; // pole tekstowe do wypisywania tablicy
     JLabel etykietaPosortowanaTablica;
-    JTextArea areaWypiszPosortowanaTablice;
+    JTextArea areaWypiszPosortowanaTablice; // pole tekstowe do wypisywania posortowanej tablicy
     Font czcionkaEtykiet;
     Font czcionkaPrzyciskow;
-    List<Integer> liczby = new ArrayList<>();
+    List<Integer> liczby = new ArrayList<>(); // Lista przechowująca liczby całkowite do sortowania.
 
+    /**
+     * Konstruktor klasy SortArrayWithAlgorithms.
+     */
     public SortArrayWithAlgorithms() {
         setTitle("Sort Array");
         setIconImage(new ImageIcon("src/strawberry.png").getImage());
-        setSize(new Dimension(600,800));
+        setSize(new Dimension(600, 800));
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        czcionkaEtykiet = new Font("Arial",Font.PLAIN,23);
-        czcionkaPrzyciskow = new Font("Arial",Font.PLAIN,16);
+        czcionkaEtykiet = new Font("Arial", Font.PLAIN, 23);
+        czcionkaPrzyciskow = new Font("Arial", Font.PLAIN, 16);
 
         etykietaWielkoscTablicy = new JLabel("Podaj rozmiar tablicy:");
-        etykietaWielkoscTablicy.setSize(150,50);
+        etykietaWielkoscTablicy.setSize(150, 50);
         etykietaWielkoscTablicy.setBackground(Color.pink);
         etykietaWielkoscTablicy.setOpaque(true); // Ustawiamy etykietę jako nieprzezroczystą
         etykietaWielkoscTablicy.setFont(czcionkaEtykiet);
@@ -45,33 +57,43 @@ public class SortArrayWithAlgorithms extends JFrame {
         poleDlugoscTablicy = new JTextField("999");
         poleDlugoscTablicy.setFont(czcionkaEtykiet);
         poleDlugoscTablicy.setHorizontalAlignment(JTextField.CENTER);
-        poleDlugoscTablicy.setPreferredSize(new Dimension(100,50));
+        poleDlugoscTablicy.setPreferredSize(new Dimension(100, 50));
         poleDlugoscTablicy.setFocusable(true);
 
         przyciskWczytajTablice = new JButton("Wyświetl tablicę:");
         przyciskWczytajTablice.setFont(czcionkaPrzyciskow);
-        przyciskWczytajTablice.setPreferredSize(new Dimension(200,50));
+        przyciskWczytajTablice.setPreferredSize(new Dimension(200, 50));
 
+        /**
+         * Dodanie ActionListenera do przycisku "Wczytaj tablicę".
+         */
         przyciskWczytajTablice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 liczby.clear();
                 String dlTablicy = poleDlugoscTablicy.getText();
-                int dlugoscTablicy = Integer.parseInt(dlTablicy);
-                println(dlugoscTablicy);
+                int dlugoscTablicy = 0;
+                try {
+                    dlugoscTablicy = Integer.parseInt(dlTablicy);
+                } catch (NumberFormatException ex) {
+                    ex.printStackTrace();
+                }
                 Random random = new Random();
                 for (int i = 0; i < dlugoscTablicy; i++) {
-                    liczby.add(random.nextInt(9,99)+1);
+                    liczby.add(random.nextInt(9, 99) + 1);
                 }
-                println("Liczby: "+ liczby);
+                println("Liczby: " + liczby);
                 areaWypiszTablice.setText(liczby.toString());
             }
         });
 
         przyciskSortujTablice = new JButton("Sortuj i wyświetl tablicę:");
         przyciskSortujTablice.setFont(czcionkaPrzyciskow);
-        przyciskSortujTablice.setPreferredSize(new Dimension(200,50));
+        przyciskSortujTablice.setPreferredSize(new Dimension(200, 50));
 
+        /**
+         * Dodanie ActionListenera do przycisku "Sortuj tablicę".
+         */
         przyciskSortujTablice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,23 +107,23 @@ public class SortArrayWithAlgorithms extends JFrame {
                 testSort("Bubble Sort", arr.clone(), alg::bubbleSort);
                 testSort("Insertion Sort", arr.clone(), alg::insertionSort);
                 testSort("Selection Sort", arr.clone(), alg::selectionSort);
-               // for (Integer i: liczby) areaWypiszPosortowanaTablice.append(i+" ");
             }
         });
 
         etykietaWypiszTablice = new JLabel("Tablica przed sortowaniem:");
         etykietaWypiszTablice.setFont(czcionkaEtykiet);
-        areaWypiszTablice = new JTextArea(15,45);
+        areaWypiszTablice = new JTextArea(15, 45);
         areaWypiszTablice.setLineWrap(true);
         areaWypiszTablice.setWrapStyleWord(true);
 
         etykietaPosortowanaTablica = new JLabel("Tablica po sortowaniu:");
         etykietaPosortowanaTablica.setFont(czcionkaEtykiet);
 
-        areaWypiszPosortowanaTablice = new JTextArea(15,45);
+        areaWypiszPosortowanaTablice = new JTextArea(15, 45);
         areaWypiszPosortowanaTablice.setLineWrap(true);
         areaWypiszPosortowanaTablice.setWrapStyleWord(true);
 
+        // Utworzenie panelu głównego
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(Color.decode("#eab676"));
         mainPanel.setLayout(new FlowLayout());
@@ -109,18 +131,24 @@ public class SortArrayWithAlgorithms extends JFrame {
         mainPanel.add(etykietaWielkoscTablicy);
         mainPanel.add(poleDlugoscTablicy);
 
+        // Dodanie separatora
         JSeparator jSeparator = new JSeparator(JSeparator.HORIZONTAL);
-        jSeparator.setPreferredSize(new Dimension(600,2));
+        jSeparator.setPreferredSize(new Dimension(600, 2));
         mainPanel.add(jSeparator);
 
         mainPanel.add(etykietaWypiszTablice);
+
+        // Dodanie JScrollPane do panelu głównego
         JScrollPane jScrollPane = new JScrollPane(areaWypiszTablice);
-        jScrollPane.setHorizontalScrollBar(new JScrollBar(Adjustable.HORIZONTAL));
+        // Ustawienie paska przewijania poziomego na zawsze widoczny
+        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        // Ustawienie paska przewijania pionowego na zawsze widoczny
+        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         mainPanel.add(jScrollPane);
         mainPanel.add(przyciskWczytajTablice);
 
         JSeparator jSeparator2 = new JSeparator(JSeparator.HORIZONTAL);
-        jSeparator2.setPreferredSize(new Dimension(600,2));
+        jSeparator2.setPreferredSize(new Dimension(600, 2));
         mainPanel.add(jSeparator2);
         mainPanel.add(etykietaPosortowanaTablica);
 
@@ -133,9 +161,16 @@ public class SortArrayWithAlgorithms extends JFrame {
         add(mainPanel);
     }
 
+    /**
+     * Metoda testująca algorytm sortowania.
+     * @param name nazwa algorytmu
+     * @param arr tablica do posortowania
+     * @param sorter implementacja algorytmu sortowania
+     * Consumer to interfejs funkcyjny, który przyjmuje jeden argument i nie zwraca żadnego wyniku.
+     */
     private void testSort(String name, int[] arr, Consumer<int[]> sorter) {
         long start = System.nanoTime();
-
+        // Wywołanie algorytmu sortowania "in-place" – tablica arr zostaje zmodyfikowana bez tworzenia nowej.
         sorter.accept(arr); // wywołanie np. bubbleSort(arr)
 
         long end = System.nanoTime();
@@ -147,8 +182,10 @@ public class SortArrayWithAlgorithms extends JFrame {
         println(String.format("Czas dla %s: %.3f ms", name, ms));
     }
 
-
+    /**
+     * Metoda główna uruchamiająca aplikację Swing.
+     */
     void main() {
-        SwingUtilities.invokeLater(()->new SortArrayWithAlgorithms().setVisible(true));
+        SwingUtilities.invokeLater(() -> new SortArrayWithAlgorithms().setVisible(true));
     }
 }

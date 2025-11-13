@@ -1,9 +1,21 @@
+/*
+ * Copyright (c) 2025 Gac Andrzej
+ * Licencja MIT. Pełną treść licencji znajdziesz w pliku LICENSE w katalogu głównym projektu.
+ */
+
 package cwiczenia10;
 
 import java.util.ArrayList;
 
+/**
+ * Klasa zawierająca algorytmy sortowania.
+ */
 public class Algorithms {
 
+    /**
+     * Metoda sortowania bąbelkowego.
+     * @param arr tablica do posortowania
+     */
     public void bubbleSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -18,6 +30,10 @@ public class Algorithms {
         }
     }
 
+    /**
+     * Metoda sortowania przez wstawianie.
+     * @param arr tablica do posortowania
+     */
     public void insertionSort(int[] arr) {
         int n = arr.length;
 
@@ -36,6 +52,10 @@ public class Algorithms {
         }
     }
 
+    /**
+     * Metoda sortowania przez wybieranie.
+     * @param arr tablica do posortowania
+     */
     public void selectionSort(int[] arr) {
         int n = arr.length;
 
@@ -59,7 +79,10 @@ public class Algorithms {
     }
 
 
-
+    /**
+     * Metoda sortowania bąbelkowego dla ArrayList<Integer>.
+     * @param list ArrayList do posortowania
+     */
     public void bubbleSort(ArrayList<Integer> list) {
         int n = list.size();
         for (int i = 0; i < n - 1; i++) {
@@ -74,6 +97,10 @@ public class Algorithms {
         }
     }
 
+    /**
+     * Metoda sortowania przez wstawianie dla ArrayList<Integer>.
+     * @param list ArrayList do posortowania
+     */
     public void insertionSort(ArrayList<Integer> list) {
         int n = list.size();
         for (int i = 1; i < n; i++) {
@@ -88,6 +115,10 @@ public class Algorithms {
         }
     }
 
+    /**
+     * Metoda sortowania przez wybieranie dla ArrayList<Integer>.
+     * @param list ArrayList do posortowania
+     */
     public void selectionSort(ArrayList<Integer> list) {
         int n = list.size();
         for (int i = 0; i < n - 1; i++) {

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2025 Gac Andrzej
+ * Licencja MIT. Pełną treść licencji znajdziesz w pliku LICENSE w katalogu głównym projektu.
+ */
 package cwiczenia10;
 
 import javax.swing.*;
@@ -11,6 +15,11 @@ import java.util.Random;
 
 import static java.lang.IO.println;
 
+/**
+ * Klasa SortArray przedstawia wykorzystanie sortowania na tablicy liczb całkowitych
+ * oraz komponentów swing takich jak JFrame, JPanel, JLabel, JTextField, JButton, JTextArea, JScrollPane, JSeparator.
+ * Przedstawia także użycie actionlistenerów.
+ * */
 public class SortArray extends JFrame {
     JLabel etykietaWielkoscTablicy;
     JTextField poleDlugoscTablicy;

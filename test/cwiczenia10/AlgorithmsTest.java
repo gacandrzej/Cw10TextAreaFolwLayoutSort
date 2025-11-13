@@ -1,22 +1,47 @@
+/*
+ * Copyright (c) 2025 Gac Andrzej
+ * Licencja MIT. Pełną treść licencji znajdziesz w pliku LICENSE w katalogu głównym projektu.
+ */
 package cwiczenia10;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Klasa testująca algorytmy sortowania.
+ */
 class AlgorithmsTest {
-    Algorithms algorithms;
+    static Algorithms algorithms;
     int[] arr;
 
+    /**
+     * Metoda wykonywana raz, przed wszystkimi testami w klasie.
+     */
+    @BeforeAll
+    static void beforeAll() {
+        algorithms = new Algorithms();
+    }
+
+    /**
+     * Metoda wykonywana raz, po wszystkich testach w klasie.
+     */
+    @AfterAll
+    static void afterAll() {
+        algorithms = null;
+    }
+
+    /**
+     * Inicjalizuje obiekt Algorithms i tworzy tablicę z losowymi liczbami przed każdym testem.
+     */
     @BeforeEach
     void setUp() {
-        algorithms = new Algorithms();
+
         int n = 50_000; // rozmiar tablicy
         Random random = new Random();
 
@@ -24,12 +49,15 @@ class AlgorithmsTest {
         arr = random.ints(n, 0, 1_000_000).toArray();
     }
 
+    /**
+     * Usuwa obiekt Algorithms po każdym teście.
+     */
     @AfterEach
     void tearDown() {
-        algorithms = null;
         arr = null;
     }
 
+    // testy
     @Test
     void insertionSort() {
         int[] copy = arr.clone();
@@ -157,5 +185,24 @@ class AlgorithmsTest {
                 },
                 "Selection Sort przekroczył maksymalny czas wykonania!");
     }
+
+// bez duplikacji
+void testTimeout(String name, Consumer<int[]> sorter, int n) {
+    int[] arr = new Random().ints(n, 0, 1_000_000).toArray();
+    int[] expected = arr.clone();
+    Arrays.sort(expected);
+    assertTimeout(Duration.ofSeconds(5), () -> {
+        int[] copy = arr.clone();
+        sorter.accept(copy);
+        assertArrayEquals(expected, copy, name + " nie posortował tablicy poprawnie!");
+    });
+}
+
+    @Test
+    void bubbleSortTimeoutWithConsumer() {
+        testTimeout("Bubble Sort", algorithms::bubbleSort, 10_000);
+    }
+
+
 
 }
