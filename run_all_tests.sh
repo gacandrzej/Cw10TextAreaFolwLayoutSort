@@ -35,7 +35,7 @@ fi
 
 # Instalacja junit2html (jeśli nie ma)
 echo "Instaluję junit2html..."
-python -m pip install --upgrade pip junit2html
+pip install junit2html
 
 # Kompilacja kodu źródłowego i testów
 echo "Kompilacja kodu..."
