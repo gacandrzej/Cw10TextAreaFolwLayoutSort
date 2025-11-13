@@ -62,7 +62,7 @@ echo "Konwersja XML -> HTML"
 if [[ "$OS" == "Windows_NT" ]]; then
   "$Scripts_DIR/junit2html.exe" "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
 else
-  python -m junit2html "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
+  junit2html "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
 fi
 
 
