@@ -39,8 +39,8 @@ jobs:
       - name: Run all tests
         run: ./run_all_tests.sh
 
-      - name: Upload HTML reports
+      - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: reports/*.html
+            name: junit-report
+            path: reports/report-jupiter.html
