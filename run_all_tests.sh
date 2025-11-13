@@ -54,11 +54,20 @@ java -jar "$JUNIT_CONSOLE" \
 echo "✅ Testy zakończone. Raport w katalogu $REPORT_DIR"
 
 echo "Konwersja XML -> HTML"
-
+# Instalacja junit2html (jeśli nie ma)
+echo "Instaluję junit2html..."
+python -m pip install --upgrade pip junit2html --user
 # Instalacja junit2html, jeśli brak
 if ! python -m junit2html --version &> /dev/null; then
     echo "Instaluję junit2html..."
     python -m pip install --user -q junit2html
 fi
 
-"$Scripts_DIR/junit2html.exe" "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
+if [[ "$OS" == "Windows_NT" ]]; then
+  "$Scripts_DIR/junit2html.exe" "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
+else
+  python -m junit2html "$REPORT_DIR/TEST-junit-jupiter.xml" "$REPORT_DIR/report-jupiter.html"
+fi
+
+
+

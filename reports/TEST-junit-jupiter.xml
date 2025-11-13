@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="9" skipped="0" failures="0" errors="0" time="5.743" hostname="PC" timestamp="2025-11-13T14:00:00">
+<testsuite name="JUnit Jupiter" tests="9" skipped="0" failures="0" errors="0" time="5.741" hostname="PC" timestamp="2025-11-13T14:48:08">
 <properties>
 <property name="file.encoding" value="UTF-8"/>
 <property name="file.separator" value="\"/>
@@ -56,25 +56,25 @@
 <property name="user.timezone" value="Europe/Warsaw"/>
 <property name="user.variant" value=""/>
 </properties>
-<testcase name="bubbleSortPreemptive()" classname="cwiczenia10.AlgorithmsTest" time="2.044">
+<testcase name="bubbleSortPreemptive()" classname="cwiczenia10.AlgorithmsTest" time="2.052">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:bubbleSortPreemptive()]
 display-name: bubbleSortPreemptive()
 ]]></system-out>
 </testcase>
-<testcase name="bubbleSort()" classname="cwiczenia10.AlgorithmsTest" time="1.839">
+<testcase name="bubbleSort()" classname="cwiczenia10.AlgorithmsTest" time="1.837">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:bubbleSort()]
 display-name: bubbleSort()
 ]]></system-out>
 </testcase>
-<testcase name="selectionSort()" classname="cwiczenia10.AlgorithmsTest" time="0.414">
+<testcase name="selectionSort()" classname="cwiczenia10.AlgorithmsTest" time="0.412">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:selectionSort()]
 display-name: selectionSort()
 ]]></system-out>
 </testcase>
-<testcase name="selectionSortTimeout()" classname="cwiczenia10.AlgorithmsTest" time="0.053">
+<testcase name="selectionSortTimeout()" classname="cwiczenia10.AlgorithmsTest" time="0.054">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:selectionSortTimeout()]
 display-name: selectionSortTimeout()
@@ -86,25 +86,25 @@ unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:ins
 display-name: insertionSortTimeout()
 ]]></system-out>
 </testcase>
-<testcase name="insertionSort()" classname="cwiczenia10.AlgorithmsTest" time="0.339">
+<testcase name="insertionSort()" classname="cwiczenia10.AlgorithmsTest" time="0.326">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:insertionSort()]
 display-name: insertionSort()
 ]]></system-out>
 </testcase>
-<testcase name="bubbleSortTimeout()" classname="cwiczenia10.AlgorithmsTest" time="0.055">
+<testcase name="bubbleSortTimeout()" classname="cwiczenia10.AlgorithmsTest" time="0.048">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:bubbleSortTimeout()]
 display-name: bubbleSortTimeout()
 ]]></system-out>
 </testcase>
-<testcase name="insertionSortPreemptive()" classname="cwiczenia10.AlgorithmsTest" time="0.336">
+<testcase name="insertionSortPreemptive()" classname="cwiczenia10.AlgorithmsTest" time="0.329">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:insertionSortPreemptive()]
 display-name: insertionSortPreemptive()
 ]]></system-out>
 </testcase>
-<testcase name="selectionSortPreemptive()" classname="cwiczenia10.AlgorithmsTest" time="0.601">
+<testcase name="selectionSortPreemptive()" classname="cwiczenia10.AlgorithmsTest" time="0.608">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:cwiczenia10.AlgorithmsTest]/[method:selectionSortPreemptive()]
 display-name: selectionSortPreemptive()
