@@ -212,7 +212,6 @@ W terminalu (Bash / Git Bash / Linux / Mac):
 
 - Email: [gacandrzej@gmail.com](mailto:gacandrzej@gmail.com)
 
-
 ---
 
 ## Licencja
